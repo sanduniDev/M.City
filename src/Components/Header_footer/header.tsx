@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Button } from '@mui/material';
 // import { signOut } from "firebase/auth";
 
 import { Link } from 'react-router-dom';
-// import { CityLogo } from '../Utils/tools';
+import { CityLogo } from '../Utils/tools';
 // import { showErrorToast, showSuccessToast} from "../Utils/tools";
 // import { logOutHandler } from '../Utils/tools';
 
@@ -37,13 +37,12 @@ const Header = ({ user }: any) => {
             <Toolbar style={{ display: 'flex' }}>
                 <div style={{ flexGrow: 1 }}>
                     <div className="header_logo">
-                        {/* <CityLogo
+                        <CityLogo
                             link={true}
                             linkTo={'/'}
                             width="70px"
                             height="70px"
-                        /> */}
-                        logo
+                        />
                     </div>
                 </div>
 
