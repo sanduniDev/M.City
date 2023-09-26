@@ -4,7 +4,6 @@ import './Resources/css/app.css'
 import Routes from './routes.tsx'
 
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Routes />
