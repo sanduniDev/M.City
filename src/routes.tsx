@@ -9,6 +9,7 @@ function Routes() {
     <BrowserRouter>
       <Header />
       <RouterRoutes>
+        <Route path="/sign_in" element={<signIn />} />
         <Route path="/" element={<Home />} />
         {/* Add more routes as needed */}
       </RouterRoutes>
