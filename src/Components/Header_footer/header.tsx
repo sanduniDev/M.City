@@ -11,18 +11,18 @@ import { logOutHandler } from '../Utils/tools';
 const Header = ({ user }: any) => {
 
 
-    const logOutHandler = () =>{
-        console.log("in the function")
-        signOut(auth).then(() => {
-            // alert('signed out');
-            showSuccessToast('successfully signed out');
-          }).catch((error) => {
-            // An error happened.
-            showErrorToast(error.message);
-            // alert('error');
-            // console.log(error)
-          });
-    }
+    // const logOutHandler = () =>{
+    //     console.log("in the function")
+    //     signOut(auth).then(() => {
+    //         // alert('signed out');
+    //         showSuccessToast('successfully signed out');
+    //       }).catch((error) => {
+    //         // An error happened.
+    //         showErrorToast(error.message);
+    //         // alert('error');
+    //         // console.log(error)
+    //       });
+    // }
 
     return (
         <AppBar
