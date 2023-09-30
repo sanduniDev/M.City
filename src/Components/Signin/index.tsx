@@ -1,20 +1,16 @@
 import { useState } from "react";
-import 'firebase/auth';
-import {  signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth"; 
 import { auth } from "../../firebase";
 
 import { CircularProgress } from '@mui/material';
-import { Redirect } from "react-router-dom";;
+import { Navigate } from "react-router-dom";
 
-import { useFormik } from "formik";;
+import { useFormik } from "formik";
 import * as Yup from 'yup';
-import {toast } from 'react-toastify';
 import { showErrorToast, showSuccessToast} from "../Utils/tools";
 
-
-
-const SignIn = (props:any) => {
-
+const SignIn = (props: any) => {
+    
     const [loading, setLoading] = useState(false)
 
     console.log("signinprops")
@@ -22,48 +18,43 @@ const SignIn = (props:any) => {
 
     const formik = useFormik({
         initialValues: {
-            email: 'chavidu@gmail.com',
-            password: '123456'
+            email: 'sanduni@gmail.com',
+            password: 'sadu123'
         },
         validationSchema: Yup.object({
             email: Yup.string()
-                .email('incalid email address')
+                .email('invalid email address')
                 .required('email is required'),
             password: Yup.string()
                 .required('password is required')
         }),
         onSubmit: (values) => {
-            setLoading(true)
-            console.log(values)
-            submitForm(values)
+            setLoading(true);
+            console.log(values);
+            submitForm(values);
         }
-    })
+    });
 
-    const submitForm = (values:any) => {
-
-        signInWithEmailAndPassword(auth, values.email, values.password)
+    const submitForm = (values: any) => {
+        signInWithEmailAndPassword(auth, values.email, values.password) 
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
                 console.log(user);
                 setLoading(false);
                 showSuccessToast('Welcome back');
-                //props.history.push('/dashboard');
-                
-                // ...
+                //Navigate('/dashboard')
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setLoading(false);
                 showErrorToast(error.message);
-                //alert(error.message);
             });
     }
-
+ 
     return (
         <>
-        {!props.user?
+        {!props.user ?
         <div className="container">
             <div className="signin_wrapper" style={{ margin: '100px' }}>
                 <form onSubmit={formik.handleSubmit}>
@@ -96,25 +87,19 @@ const SignIn = (props:any) => {
                         </div> : null
                     }
 
-                    {
-                        loading ?
-                            <CircularProgress color="secondary" className="progress" />
-                            :
-                            <button type="submit" >Login</button>
+                    {loading ?
+                        <CircularProgress color="secondary" className="progress" />
+                        :
+                        <button type="submit" >Login</button>
                     }
-
-
-
                 </form>
-
             </div>
         </div>
         :
-                    <Redirect to={'/dashboard'}/>
-
-                }
-    </>
+        <Navigate to={'/dashboard'} />
+        }
+        </>
     )
 }
 
-export default SignIn  
+export default SignIn;
