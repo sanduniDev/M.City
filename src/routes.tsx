@@ -34,3 +34,6 @@ const Routes: React.FC<RoutesProps> = ({ user }) => {
 };
 
 export default Routes;
+
+
+//the routes that we want to guard we use AuthGuard
