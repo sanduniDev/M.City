@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
+import { FormHelperText } from '@mui/material';
 
 interface CityLogoProps {
   link: boolean;
@@ -86,4 +87,19 @@ export const logOutHandler = () => {
       showErrorToast(error.message);
       console.log(error);
     });
+}
+export const textErrorHelper = (formik:any, values:string) => ({
+  error: formik.errors[values] && formik.touched[values],
+  helperText: formik.errors[values] && formik.touched[values] ? formik.errors[values]:null
+})
+
+export const selectErrorHelper = (formik:any, values:string) => {
+  if(formik.errors[values] && formik.touched[values]){
+      return (<FormHelperText>{formik.errors[values]}</FormHelperText>)
+  }
+  return false
+}
+
+export const selectIsError = (formik:any, values:string) =>{
+  return formik.errors[values] && formik.touched[values]
 }
