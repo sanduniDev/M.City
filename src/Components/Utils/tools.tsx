@@ -4,11 +4,9 @@ import { toast } from 'react-toastify';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 
-import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png';
-
 interface CityLogoProps {
   link: boolean;
-  linkTo?: string; // Make the 'to' prop optional
+  linkTo?: string; 
   width: string;
   height: string;
 }
@@ -20,7 +18,7 @@ export const CityLogo: React.FC<CityLogoProps> = ({ width, height, link, linkTo 
       style={{
         width,
         height,
-        background: `url(${mcitylogo}) no-repeat`,
+        background: `url(${CityLogo}) no-repeat`,
       }}
     ></div>
   );
@@ -30,16 +28,16 @@ export const CityLogo: React.FC<CityLogoProps> = ({ width, height, link, linkTo 
   } else {
     return template;
   }
-};
+}
 
-interface TagProps {
+export interface TagProps {
   children: ReactNode;
   bck?: string;
   size?: string;
   color?: string;
   add?: React.CSSProperties;
   link?: boolean;
-  linkto?: string; // Make the 'to' prop optional
+  linkto?: string; 
 }
 
 export const Tag: React.FC<TagProps> = (props) => {
@@ -64,19 +62,19 @@ export const Tag: React.FC<TagProps> = (props) => {
   } else {
     return template;
   }
-};
+}
 
 export const showErrorToast = (msg: string) => {
   toast.error(msg, {
     position: toast.POSITION.TOP_LEFT,
   });
-};
+}
 
 export const showSuccessToast = (msg: string) => {
   toast.success(msg, {
     position: toast.POSITION.TOP_LEFT,
   });
-};
+}
 
 export const logOutHandler = () => {
   console.log('in the function');
@@ -88,4 +86,4 @@ export const logOutHandler = () => {
       showErrorToast(error.message);
       console.log(error);
     });
-};
+}
