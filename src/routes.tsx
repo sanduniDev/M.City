@@ -10,7 +10,7 @@ import Home from './Components/Home';
 import SignIn from './Components/Signin';
 import TheTeam from './Components/theTeam';
 import TheMatches from './Components/theMatches';
-
+import NotFound from './Components/NotFound';
 
 import Dashboard from './Components/Admin/Dashboard';
 import AdminPlayers from './Components/Admin/Players/index';
@@ -45,7 +45,7 @@ const Routes: React.FC<RoutesProps> = ({ user }) => {
         <Route path="/the_team" element={<TheTeam />} />
         <Route path="/sign_in" element={<SignIn />} />
         <Route path="/" element={<Home />} />
-        
+        <Route Component={NotFound} />   
       </ReactRoutes>
       <ToastContainer />
       <Footer />
