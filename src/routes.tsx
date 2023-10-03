@@ -45,7 +45,7 @@ const Routes: React.FC<RoutesProps> = ({ user }) => {
         <Route path="/the_team" element={<TheTeam />} />
         <Route path="/sign_in" element={<SignIn />} />
         <Route path="/" element={<Home />} />
-        <Route Component={NotFound} />   
+        <Route path="*" element={<NotFound />} />   
       </ReactRoutes>
       <ToastContainer />
       <Footer />
