@@ -2,6 +2,7 @@ import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getAnalytics, Analytics } from 'firebase/analytics';
 import { getAuth, Auth } from 'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 // import { cityDb } from './temp/m-city-export';
 
@@ -20,6 +21,7 @@ export const app: FirebaseApp = initializeApp(firebaseConfig);
 export const analytics: Analytics = getAnalytics(app);
 export const auth: Auth = getAuth(app);
 export const firestore = getFirestore(app);
+export const storage = getStorage(app);
 
 // Firestore collections
 const matchesCollection = collection(firestore, 'matches');

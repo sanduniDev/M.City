@@ -8,7 +8,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
   const navigate = useNavigate();
 
   return (
-    <AdminLayout title="Dashboard" navigate={navigate}> //ayyagen ahanna methana theren na
+    <AdminLayout title="Dashboard" navigate={navigate}> 
       <div className="user_dashboard">
         <div>
           This is your dashboard
